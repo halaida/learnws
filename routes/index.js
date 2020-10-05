@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('home');
-});
+const PagesController = require('../controllers/PagesController');
+const ApplicantionsController = require('../controllers/ApplicationsController');
+
+router.get('/', PagesController.home);
+router.post('/applications', ApplicantionsController.store);
 
 router.get('/contact', (req, res) => {
     res.render('contact');
